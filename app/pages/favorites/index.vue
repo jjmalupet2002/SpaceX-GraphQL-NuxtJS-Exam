@@ -16,6 +16,19 @@
         <h2>All Favorites</h2>
         <div class="actions-container">
           <v-select
+            v-model="filterCategory"
+            :items="categoryOptions"
+            label="Category"
+            variant="outlined"
+            density="compact"
+            hide-details
+            class="category-select"
+            bg-color="#333"
+            color="#00bfff"
+            item-color="#00bfff"
+            flat
+          ></v-select>
+          <v-select
             v-model="sortOrder"
             :items="sortOptions"
             label="Sort By"
@@ -96,6 +109,14 @@ const favoritesStore = useFavoritesStore()
 const showClearConfirm = ref(false)
 const router = useRouter()
 
+const filterCategory = ref<'all' | 'rocket' | 'launch'>('all')
+
+const categoryOptions = [
+  { title: 'All', value: 'all' },
+  { title: 'Rockets', value: 'rocket' },
+  { title: 'Launches', value: 'launch' },
+]
+
 // Combine all favorites and add type for identification
 const allFavorites = computed(() => {
   return [
@@ -119,7 +140,14 @@ const sortOptions = [
 ]
 
 const sortedAllFavoritesForGrid = computed(() => {
-  const list = [...allFavorites.value]
+  let list = [...allFavorites.value]
+
+  // Filter by category
+  if (filterCategory.value !== 'all') {
+    list = list.filter(item => item.type === filterCategory.value)
+  }
+
+  // Sort
   if (sortOrder.value === 'newest') {
     return list.sort((a, b) => b.addedAt - a.addedAt)
   } else {
@@ -207,6 +235,10 @@ h1 {
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+
+.category-select {
+  width: 150px;
 }
 
 .sort-select {

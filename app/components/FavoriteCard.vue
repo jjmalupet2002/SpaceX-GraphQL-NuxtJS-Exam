@@ -32,6 +32,7 @@
 <script setup lang="ts">
 import { defineProps, defineEmits } from 'vue'
 import { useFavoritesStore } from '~/stores/favorites'
+import rocketImageDefault from '@/Assets/Images/rocket_image1.jpg'
 
 const props = defineProps({
   item: {
@@ -45,12 +46,12 @@ const favoritesStore = useFavoritesStore()
 
 const getItemImage = (item: any) => {
   const data = item?.data
-  if (!data) return '/Assets/Images/rocket_image1.jpg'
+  if (!data) return rocketImageDefault
 
   if (item.type === 'rocket') {
-    return data.flickr_images?.[0] || data.image || '/Assets/Images/rocket_image1.jpg'
+    return data.flickr_images?.[0] || data.image || rocketImageDefault
   } else {
-    return data.links?.flickr_images?.[0] || data.links?.mission_patch_small || '/Assets/Images/rocket_image1.jpg'
+    return data.links?.flickr_images?.[0] || data.links?.mission_patch_small || rocketImageDefault
   }
 }
 
