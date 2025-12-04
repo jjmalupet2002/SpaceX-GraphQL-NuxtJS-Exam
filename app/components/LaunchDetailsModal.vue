@@ -80,7 +80,9 @@ const viewRocketDetails = () => {
 }
 
 const toggleFavorite = () => {
-  favoritesStore.toggleFavoriteLaunch(props.launch.id)
+  if (props.launch) { // Ensure launch object is present
+    favoritesStore.toggleFavoriteLaunch(props.launch)
+  }
 }
 </script>
 

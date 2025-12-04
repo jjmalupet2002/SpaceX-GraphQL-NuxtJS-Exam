@@ -45,7 +45,7 @@
             </div>
           </div>
           <div class="divider"></div>
-          <button class="favorite-button" @click="favoritesStore.toggleFavorite(rocket.id)">
+          <button class="favorite-button" @click="favoritesStore.toggleFavorite(rocket)">
             <span v-if="favoritesStore.isFavorite(rocket.id)">★ Remove from Favorites</span>
             <span v-else>☆ Add to Favorites</span>
           </button>
