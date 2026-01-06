@@ -105,7 +105,7 @@ export function useLaunches() {
     if (currentPage.value !== 1) {
       currentPage.value = 1
     }
-  })
+  }, { immediate: true })
 
   // Removed old commented out watch block here
 
@@ -123,5 +123,6 @@ export function useLaunches() {
     totalLaunches,
     refresh,
     searchTerm, // Exposed
+    allLaunches, // Exposed for random selection
   }
 }

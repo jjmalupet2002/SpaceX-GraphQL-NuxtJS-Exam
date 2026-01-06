@@ -4,7 +4,7 @@
       <template v-if="(launch.links?.flickr_images ?? []).length > 0">
         <v-carousel hide-delimiters height="300" show-arrows-on-hover>
           <v-carousel-item v-for="(img, i) in launch.links.flickr_images" :key="i">
-            <v-img :src="img || launch.links?.mission_patch_small || '/images/rocket_image1.jpg'" cover>
+            <v-img :src="img || launch.links?.mission_patch_small || defaultRocketImage" cover>
               <v-card-title class="text-white align-end">{{ launch.mission_name }}</v-card-title>
             </v-img>
           </v-carousel-item>
@@ -12,7 +12,7 @@
       </template>
       <template v-else>
         <v-img
-          :src="launch.links?.mission_patch_small || '/images/rocket_image1.jpg'"
+          :src="launch.links?.mission_patch_small || defaultRocketImage"
           height="300px"
           cover
         >
@@ -43,6 +43,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useFavoritesStore } from '~/stores/favorites'
+import defaultRocketImage from '~/Assets/Images/rocket_image1.jpg'
 
 const props = defineProps({
   modelValue: {

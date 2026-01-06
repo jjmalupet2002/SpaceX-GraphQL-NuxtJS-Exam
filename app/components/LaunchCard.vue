@@ -1,7 +1,7 @@
 <template>
   <v-card class="launch-card" dark @click="emit('selectLaunch', launch)">
     <v-img
-  :src="launch.links?.flickr_images?.[0] || launch.links?.mission_patch_small || '/Assets/Images/rocket_image1.jpg'"
+      :src="launch.links?.flickr_images?.[0] || launch.links?.mission_patch_small || defaultRocketImage"
       class="align-end"
       gradient="to bottom, rgba(0,0,0,.2), rgba(0,0,0,.7)"
       height="200px"
@@ -26,6 +26,8 @@
 </template>
 
 <script lang="ts" setup>
+import defaultRocketImage from '~/Assets/Images/rocket_image1.jpg'
+
 const props = defineProps({
   launch: {
     type: Object,
@@ -43,6 +45,7 @@ const emit = defineEmits(['selectLaunch'])
   border-radius: 8px;
   transition: all 0.3s ease;
   box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+  color: #fff;
 }
 
 .launch-card:hover {
