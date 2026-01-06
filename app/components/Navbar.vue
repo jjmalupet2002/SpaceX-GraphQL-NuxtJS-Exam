@@ -5,6 +5,7 @@
     <v-btn to="/" variant="text" class="text-white">Home</v-btn>
     <v-btn to="/launches" variant="text" class="text-white">View Launches</v-btn>
     <v-btn to="/rockets" variant="text" class="text-white">View Rockets</v-btn>
+    <v-btn to="/comparison" variant="text" class="text-white">Compare</v-btn>
     <v-btn to="/favorites" variant="text" class="text-white">Favorites</v-btn>
   </v-app-bar>
 </template>
