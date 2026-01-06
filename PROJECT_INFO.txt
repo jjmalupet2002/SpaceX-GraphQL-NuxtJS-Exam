@@ -1,0 +1,22 @@
+Project Description
+-------------------
+A high-performance, immersive web application that connects to the SpaceX GraphQL API to visualize mission data, rocket specifications, and launch history. Designed with a focus on modern web standards and user experience, this project serves as a comprehensive demonstration of real-time data integration and state management.
+
+Project Features (Interactive Design Focus)
+-------------------------------------------
+*   **Immersive UI/UX**: Built with Vuetify 3 to provide a sleek, material design interface with custom themes and responsive layouts that adapt fluidly across devices.
+*   **Dynamic Data Visualization**: Real-time fetching and display of complex GraphQL datasets, allowing users to explore mission details with instant feedback.
+*   **Smooth Interactions**: Enhanced user engagement through micro-interactions, loading states, and smooth ease-in/out transitions between route navigations.
+*   **Interactive Filtering**: Client-side filtering and search capabilities powered by Pinia stores for instant UI updates without page reloads.
+*   **Performance Optimization**: Utilizes Nuxt 3's hybrid rendering and Vite's rapid bundling to ensure sub-second interaction latency and high frame rates during scroll and animation events.
+
+Project Stack
+-------------
+*   **Framework**: Nuxt 3 (Vue 3 + Nitro)
+*   **Language**: TypeScript
+*   **UI Library**: Vuetify 3 (Material Design)
+*   **API Client**: Apollo Client (GraphQL)
+*   **State Management**: Pinia
+*   **Build Tool**: Vite
+*   **Package Manager**: pnpm
+*   **Linting/Formatting**: ESLint, Prettier, Stylelint
